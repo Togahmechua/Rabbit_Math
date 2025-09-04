@@ -131,6 +131,11 @@ public class MainCanvas : UICanvas
             {
                 // Sai sau khi đã đúng ít nhất 1 lần -> bỏ qua, không thua
                 Debug.Log("Ignored wrong answer (already started).");
+
+                for (int i = 0; i < answerButtons.Length; i++)
+                {
+                    answerButtons[i].enabled = false;
+                }
             }
         }
     }
@@ -141,6 +146,11 @@ public class MainCanvas : UICanvas
         isStarted = false;
         isGameOver = false;
         hasAnsweredCorrectly = false;
+
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            answerButtons[i].enabled = true;
+        }
 
         UpdateTimerUI();
         GenerateQuestion();
